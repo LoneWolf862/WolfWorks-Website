@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arcade Control Deck Interface | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Arcade Control Deck Interface</h1>
+    <h3>Custom PCB Design, USB HID, Arcade Controls, and Embedded I/O</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Functional Prototype — Two hardware revisions
+    </p>
+
+    <div class="btn-row">
+      <a class="btn secondary" href="https://github.com/LoneWolf862/BushWorks-Control-Deck-Interface" target="_blank">
+        View GitHub Repository
+      </a>
+    </div>
+  </div>
+
+  <img class="project-splash" src="/images/cdi_splash.jpg" alt="Arcade Control Deck Interface PCB">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A custom Teensy 4.1-based arcade control interface PCB designed for BushWorks Entertainment to connect buttons, joysticks, and optical encoders to a Raspberry Pi over USB.
+    The board replaced an unreliable ESP32 prototype and provided a faster, cleaner, more maintainable control system for arcade hardware.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      This project was built for my friend’s business, BushWorks Entertainment. The arcade machine ran its game software on a Raspberry Pi, but needed a reliable interface between the physical control deck and the Pi. The existing prototype used an ESP32, which worked acceptably for normal button presses but struggled with the two optical encoders used as gameplay inputs.
+    </p>
+
+    <p>
+      To improve reliability and future expandability, I redesigned the interface around a Teensy 4.1. The Teensy provided more than enough GPIO, significantly better performance for encoder handling, strong USB HID support, and room for future expansion through extra GPIO, SPI, and I2C.
+    </p>
+
+    <p>
+      The PCB was designed to mount directly to the underside of the arcade control deck and connect using the JST standard already used by the machine. This made the system easier to service, easier to swap, and easier to maintain in the event of button, control, wiring, or interface-card failure.
+    </p>
+
+    <p>
+      The first revision was designed and rolled out extremely quickly, with roughly a three-week turnaround including fabrication and shipping. It was built specifically for the arcade game Tank Tonk and worked correctly on the first hardware revision. A second revision followed shortly after, generalizing the design for future BushWorks arcade machines instead of only supporting Tank Tonk.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Teensy 4.1-based USB control interface for Raspberry Pi arcade systems.</li>
+      <li>USB HID output support for keyboard, gamepad, or custom HID behavior.</li>
+      <li>Dual quadrature optical encoder support with onboard 10 kΩ pull-up resistors to 3.3 V.</li>
+      <li>JST-XH connector system for organized wiring and serviceable control-deck connections.</li>
+      <li>Active-low button and switch input architecture.</li>
+      <li>Support for left and right joystick inputs.</li>
+      <li>Dedicated left and right button banks for player controls.</li>
+      <li>Top connector support for toggle switch, relay output, and 3-position momentary control states.</li>
+      <li>USB-powered design with no external supply required for normal operation.</li>
+      <li>Board designed for physical mounting under the arcade control deck.</li>
+      <li>Mechanical layout designed around shock, vibration, abuse, and arcade-environment serviceability.</li>
+      <li>Second revision expanded the design into a more general-purpose arcade interface platform.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Encoder reliability:</strong> the original ESP32 prototype did not handle the optical encoder inputs well enough, so the system was redesigned around the faster and more capable Teensy 4.1.</li>
+      <li><strong>Fast turnaround:</strong> the arcade machine was blocked by the control interface, so the PCB had to be designed, fabricated, shipped, assembled, and deployed very quickly.</li>
+      <li><strong>Arcade environment durability:</strong> the board had to survive vibration, impact, abuse, and general arcade-machine conditions.</li>
+      <li><strong>Serviceability:</strong> JST-XH connectors were used so controls and wiring could be replaced or hot-swapped more easily during maintenance.</li>
+      <li><strong>Fluid-spill risk:</strong> board placement was selected so spills on the control deck would be less likely to reach the electronics.</li>
+      <li><strong>Mechanical mounting:</strong> the PCB was bolted to an isolation platform under the control deck to reduce shock and mounting stress.</li>
+      <li><strong>Revision planning:</strong> revision one was game-specific, while revision two expanded the design into a reusable arcade control platform for future BushWorks games.</li>
+      <li><strong>Firmware handoff:</strong> the board needed to be simple and well-documented enough for the software team to immediately begin writing firmware and integrating it with the Raspberry Pi.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The control interface was designed as a passive electrical interface between the Teensy 4.1 and the arcade control devices. The Teensy continuously scans, debounces, and interprets the controls, then presents the resulting input state to the Raspberry Pi through USB.
+    </p>
+
+    <p>
+      The first board revision was built specifically for Tank Tonk and was successful after a single design revision. The second revision added additional I/O and generalized the design for future arcade games produced by BushWorks Entertainment.
+    </p>
+
+    <p>
+      The final board uses a 1.6 mm FR-4 PCB measuring approximately 62 × 95 mm with four M3 mounting holes and labeled connectors for maintenance.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/cdi_01.jpg" alt="Arcade Control Deck Interface gallery image 1">
+    <img src="/images/cdi_02.jpg" alt="Arcade Control Deck Interface gallery image 2">
+    <img src="/images/cdi_03.jpg" alt="Arcade Control Deck Interface gallery image 3">
+    <img src="/images/cdi_04.jpg" alt="Arcade Control Deck Interface gallery image 4">
+    <img src="/images/cdi_05.jpg" alt="Arcade Control Deck Interface gallery image 5">
+    <img src="/images/cdi_06.jpg" alt="Arcade Control Deck Interface gallery image 6">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B.N.P Feedback Controller | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>B.N.P Feedback Controller</h1>
+    <h3>Ball and Plate Feedback Controller</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Deployed Educational Hardware — ECEN 470 Feedback Control Lab
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/bnp_splash.jpg" alt="BNP Feedback Controller">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    The B.N.P. Feedback Controller is a custom embedded interface developed for the ECEN 470 Feedback Control laboratory.
+    The system translates PLC analog outputs into servo motion while reporting ball position back to the PLC through a resistive touch interface.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      The Ball and Plate system serves as the centerpiece of the ECEN 470 Feedback Control laboratory. Students use a PLC-based control loop to balance a ball on a tilting platform and eventually command the ball to trace shapes across the plate. The platform uses two servos to control the angle of the plate, while a resistive touch surface measures the ball's X and Y position.
+    </p>
+
+    <p>
+      At its core, the system consists of two analog outputs from the PLC that command servo position and two analog inputs that report ball position back to the PLC. The original implementation used an Arduino Mega, a servo controller, and a PWM hat to emulate analog feedback signals. While the concept worked in theory, the actual system was unstable, erratic, and prone to crashing.
+    </p>
+
+    <p>
+      What began as a repair effort quickly became a full engineering investigation. The system had software issues, power integrity problems, signal integrity failures, grounding problems, analog reference instability, and recurring hardware damage. After correcting the obvious software problems, the remaining instability made it clear that the architecture itself needed to be redesigned.
+    </p>
+
+    <p>
+      I ultimately scrapped the original design and developed a custom Arduino Mega shield PCB with improved power distribution, cleaner analog outputs, better grounding, dedicated protection circuitry, and fault indication. The result was a far more stable, maintainable, and classroom-ready control interface.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Engineering Investigation</h2>
+  <div class="panel">
+    <p>
+      A major part of this project was diagnosing why the original system failed. The first visible problems were in the code: inconsistent function behavior, overdefined range values, lack of hardware calibration, and a messy control structure. Cleaning up those issues improved behavior, but the hardware still remained unstable.
+    </p>
+
+    <p>
+      The first major hardware issue was power integrity. The original design used two 6 V rails: one for the servos and one for the Arduino. This placed the servos near their minimum usable voltage while also feeding the Arduino VIN high enough that the 5 V rail was not properly stable. When the servos moved suddenly, current spikes caused supply voltage dips that the system could not tolerate.
+    </p>
+
+    <p>
+      The second issue was analog reference instability. Because the Arduino's 5 V rail was not truly stable, the system's analog sampling reference shifted under load. The PLC was sending nominal 0–5 V position commands, but the Arduino reference voltage was changing whenever the servos demanded current. This made the same command voltage appear different depending on the state of the power system.
+    </p>
+
+    <p>
+      The third issue was signal integrity. The original system used extra hardware and long chains of jumper wires, creating inconsistent connections and unnecessary noise paths. Several signal grounds were also carrying servo return current, which caused ground bounce and corrupted signal references.
+    </p>
+
+    <p>
+      The fourth major issue was damage to the Arduino's USB serial hardware. Current and voltage were feeding back from the servo controller to the Arduino over UART lines. When servo voltage dipped, the system attempted to pull current through data references and UART pins, repeatedly damaging the serial interface.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Custom Arduino Mega shield PCB designed specifically for the ball and plate control platform.</li>
+      <li>MCP4728 digital-to-analog converter for clean analog voltage output to the PLC.</li>
+      <li>Dedicated routing for analog, digital, UART, power, and ground signals.</li>
+      <li>Improved power architecture using two identical 9 V power supplies.</li>
+      <li>Bulk capacitance and local decoupling to stabilize the 5 V rail.</li>
+      <li>TVS diode protection on power rails to suppress overvoltage events.</li>
+      <li>Series resistors on UART lines to reduce the risk of damaging reverse-current flow.</li>
+      <li>Backup serial routing options to alternate Arduino serial ports.</li>
+      <li>Analog input protection using series resistors and zener diode clamping.</li>
+      <li>Protection against accidental PLC analog output overvoltage.</li>
+      <li>Fault LEDs for visible system diagnostics and easier troubleshooting.</li>
+      <li>Designed for repeated student use in an educational lab environment.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Root-cause diagnosis:</strong> separating software issues from power, grounding, analog reference, signal integrity, and hardware protection problems.</li>
+      <li><strong>Power rail stability:</strong> preventing servo current spikes from collapsing the control electronics' voltage rails.</li>
+      <li><strong>Analog reference accuracy:</strong> ensuring PLC analog commands and touchpad feedback remained meaningful under changing load conditions.</li>
+      <li><strong>Grounding strategy:</strong> eliminating ground loops and ground bounce caused by high-current servo return paths flowing through signal grounds.</li>
+      <li><strong>Signal integrity:</strong> replacing long jumper chains and unnecessary wiring paths with structured PCB routing.</li>
+      <li><strong>UART protection:</strong> preventing current from feeding back through serial communication lines and damaging Arduino hardware.</li>
+      <li><strong>Student-proofing:</strong> designing protection against accidental overvoltage from incorrectly configured PLC analog output ranges.</li>
+      <li><strong>Educational reliability:</strong> creating a system stable enough to support student labs without requiring constant hardware intervention.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      One of the most important design choices was standardizing both external supplies as identical 9 V adapters. Earlier concepts used one true 5 V supply and one 9 V supply, but that introduced the possibility of students swapping the supplies and damaging the hardware. Using two identical supplies made the system far more tolerant of incorrect hookup.
+    </p>
+
+    <p>
+      The servos could comfortably accept 9 V, while the Arduino could use 9 V on VIN with added bulk capacitance supporting its internal regulation. This gave the system more headroom than the original 6 V supply design and significantly improved stability during rapid servo movement.
+    </p>
+
+    <p>
+      The final design also added protection for common classroom failure modes. TVS diodes helped protect the power rails, zener clamps protected analog inputs, and UART series resistors reduced the risk of serial-line damage. These additions made the system more robust and better suited for repeated educational use.
+    </p>
+
+    <p>
+      This project became much more than a simple interface board. It became an exercise in systems engineering, power integrity, signal integrity, grounding, fault diagnosis, and designing hardware that can survive real student use.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/bnp_01.jpg" alt="BNP Feedback Controller gallery image 1">
+    <img src="/images/bnp_02.jpg" alt="BNP Feedback Controller gallery image 2">
+    <img src="/images/bnp_03.jpg" alt="BNP Feedback Controller gallery image 3">
+    <img src="/images/bnp_04.jpg" alt="BNP Feedback Controller gallery image 4">
+    <img src="/images/bnp_05.jpg" alt="BNP Feedback Controller gallery image 5">
+    <img src="/images/bnp_06.jpg" alt="BNP Feedback Controller gallery image 6">
+    <img src="/images/bnp_07.jpg" alt="BNP Feedback Controller gallery image 7">
+    <img src="/images/bnp_08.jpg" alt="BNP Feedback Controller gallery image 8">
+    <img src="/images/bnp_09.jpg" alt="BNP Feedback Controller gallery image 9">
+    <img src="/images/bnp_10.jpg" alt="BNP Feedback Controller gallery image 10">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

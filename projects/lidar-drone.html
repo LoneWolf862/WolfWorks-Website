@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autonomous LiDAR Terrain Mapping Drone | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Autonomous LiDAR Terrain Mapping Drone</h1>
+    <h3>Embedded Systems, Robotics, Telemetry, and 3D Mapping</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Archived / Functional Prototype — ECEN 361 project, later continued independently
+    </p>
+  </div>
+  <img class="project-splash" src="/images/lidardrone_splash.jpg" alt="LiDAR terrain mapping drone">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A LiDAR-equipped hexacopter platform designed to scan terrain from the air and generate usable 3D point-map data.
+    The system combined flight control, long-range telemetry, LiDAR scanning, servo motion, onboard logging, and later autonomous GPS-based mission flight.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      This project started as an ambitious ECEN 361 drone mapping project. The core concept was to mount a long-distance scanning LiDAR module under a drone, sweep it back and forth with a servo, and combine distance, angle, and timing data into a point-map representation of the terrain below.
+    </p>
+
+    <p>
+      The project used an ArduPilot Cube Orange flight controller, LW20 LightWare LiDAR, long-range RFD 900x-US telemetry, a Taranis/FrSky radio control system, and multiple embedded controllers for data collection and control translation. The drone began as a nonfunctional inherited frame and was rebuilt into a mostly stable flying platform before the LiDAR payload and data system were added.
+    </p>
+
+    <p>
+      By the end of the semester the drone was operational at a basic level. After the course ended, additional work improved stability, added GPS, enabled more consistent autonomous mission flights, and produced viable raw LiDAR point-map data.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Hexacopter airframe rebuilt from a nonfunctional previous project platform.</li>
+      <li>ArduPilot Cube Orange flight controller with loosely tuned, later improved flight control.</li>
+      <li>LW20 LightWare LiDAR module mounted for terrain distance scanning.</li>
+      <li>Servo-driven scan motion to sweep the LiDAR across the terrain.</li>
+      <li>Long-range RFD 900x-US telemetry radio link for mission-control communication.</li>
+      <li>Arduino PWM-to-digital bridge for triggering scan behavior from the flight controller.</li>
+      <li>Embedded data capture through microcontroller firmware and SD card logging.</li>
+      <li>FAA Remote ID telemetry module broadcasting ID, position, altitude, speed, heading, takeoff location, emergency status, and timestamp.</li>
+      <li>Later GPS integration for more consistent autonomous grid-pattern flight.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Recovering the drone platform:</strong> the inherited drone was mostly nonfunctional, so motors, ESCs, power systems, and flight-control hardware had to be evaluated, repaired, or replaced.</li>
+      <li><strong>Learning ArduPilot/Cube Orange quickly:</strong> the team had limited experience with the Cube platform, requiring rapid learning of flight-controller setup, control loops, telemetry, and mission behavior.</li>
+      <li><strong>Flight stability:</strong> the first working configuration could hover, but loose control tuning made precision flight difficult until later feedback tuning improved stability.</li>
+      <li><strong>Regulatory compliance:</strong> the drone’s size and weight pushed it into a category requiring Remote ID compliance, so an ASTM F3411 Remote ID telemetry module was acquired, configured, and installed.</li>
+      <li><strong>Crash repair:</strong> a low-altitude wind-related crash destroyed telemetry-radio antenna connections. The antenna connection was repaired using a soldered jumper and nonconductive epoxy reinforcement.</li>
+      <li><strong>LiDAR initialization:</strong> the system needed a way to start scanning while airborne, which led to the Arduino PWM-to-digital control bridge.</li>
+      <li><strong>Data path constraints:</strong> full radio passthrough was not ready during the semester, so SD card logging was used first, with later work moving data over the wireless radio.</li>
+      <li><strong>Power distribution:</strong> the drone required stable 3.3 V, 5 V, and 12 V rails from a 22 V battery system, built using buck converters and added filtering.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The original concept was a long-range autonomous terrain scanner that could be launched from a base camp, fly a planned route, and relay useful terrain data over a long-range radio link. The radio system was selected with the hope of supporting telemetry over very long distances.
+    </p>
+
+    <p>
+      The final data flow used the handheld controller and receiver to communicate with the Cube flight controller. The Cube handled flight behavior and output PWM signals. An Arduino translated PWM into digital command flags, while the LiDAR controller drove the servo, recorded scan data, and either stored data locally or relayed it through the telemetry radio.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+    <div class="gallery">
+    <img src="/images/lidardrone_01.jpg" alt="LiDAR Drone Image 1">
+    <img src="/images/lidardrone_02.jpg" alt="LiDAR Drone Image 2">
+    <img src="/images/lidardrone_03.jpg" alt="LiDAR Drone Image 3">
+    <img src="/images/lidardrone_04.jpg" alt="LiDAR Drone Image 4">
+    <img src="/images/lidardrone_05.jpg" alt="LiDAR Drone Image 5">
+    <img src="/images/lidardrone_06.jpg" alt="LiDAR Drone Image 6">
+    <img src="/images/lidardrone_07.jpg" alt="LiDAR Drone Image 7">
+    <img src="/images/lidardrone_08.jpg" alt="LiDAR Drone Image 8">
+    <img src="/images/lidardrone_09.jpg" alt="LiDAR Drone Image 9">
+    <img src="/images/lidardrone_10.jpg" alt="LiDAR Drone Image 10">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

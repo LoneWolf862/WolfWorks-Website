@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>L.A.M.P | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>L.A.M.P</h1>
+    <h3>Photolithography, Precision Optics, Research Instrumentation, and Rapid Prototyping</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Archived / Functional Prototype — Completed in under two weeks
+    </p>
+  </div>
+  <img class="project-splash" src="/images/lamp_splash.jpg" alt="Lithographic Adaptive Masking Platform">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    L.A.M.P. is a rapidly prototyped photolithography exposure platform designed to expose silicon wafers with controlled UV timing, adjustable emitter intensity, and high-resolution digital masking.
+    It was built as a fast-turnaround research tool when the lab needed a functional lithography system before the proper equipment and materials were available.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      L.A.M.P. stands for Lithographic Adaptive Masking Platform. The project was designed and fabricated in a compressed development window of roughly two weeks, with approximately 65 hours dedicated between May 1st and May 12th. The system was built to provide a reliable and repeatable platform for UV photolithography experiments.
+    </p>
+
+    <p>
+      The platform works by directing UV light through a high-curvature lens to spread the beam, then through a Fresnel lens to straighten and condition the rays before passing them through a 4K-resolution LCD mask. The LCD provides an approximate 300:1 light attenuation ratio between active and inactive pixels, allowing custom exposure masks to be generated digitally rather than requiring a new physical mask for every pattern.
+    </p>
+
+    <p>
+      In its current prototype form, silicon wafers are placed directly on top of the LCD mask. This allows the system to function as an accessible and repeatable exposure platform, though achievable resolution is limited by light scattering and diffraction. Future versions may use lens-based projection to scale down and focus the image for improved pattern fidelity.
+    </p>
+
+    <p>
+      L.A.M.P. was built out of immediate research necessity. The research group knew the photolithography process it wanted to test, but lacked the required platform to perform consistent exposures. This project filled that gap with a practical, fast-built, functional prototype.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>4K-resolution LCD digital mask for programmable photolithography patterns.</li>
+      <li>UV exposure system with controllable timing and repeatable exposure behavior.</li>
+      <li>High-curvature lens used to spread the UV emitter beam.</li>
+      <li>Fresnel lens used to straighten and condition the light path before the LCD mask.</li>
+      <li>Approximate 300:1 LCD attenuation ratio between active and inactive pixels.</li>
+      <li>Manual mask cutoff switch that kills LCD power and blacks out the mask to immediately stop exposure.</li>
+      <li>Manual UV power switch for directly enabling or disabling the UV emitter.</li>
+      <li>Internal red LED illumination for mask alignment before UV exposure.</li>
+      <li>Adjustable emitter intensity for controlling UV output.</li>
+      <li>Internal current and voltage monitoring for estimating UV emitter wattage.</li>
+      <li>Front-panel pushbuttons and display for presets, programming, and monitoring.</li>
+      <li>Designed for rapid wafer exposure testing and repeatable research workflows.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Extreme development timeline:</strong> the system was designed and fabricated in under two weeks, requiring fast design decisions, rapid fabrication, and practical compromise.</li>
+      <li><strong>Optical path design:</strong> the UV emitter had to be spread, conditioned, and directed through the LCD mask in a way that produced usable exposure consistency.</li>
+      <li><strong>Mask contrast:</strong> the system depended on the LCD mask providing enough attenuation between active and inactive pixels to create useful exposure boundaries.</li>
+      <li><strong>Exposure repeatability:</strong> the platform needed to produce consistent timing and emitter behavior so photolithography tests could be compared meaningfully.</li>
+      <li><strong>Power and intensity measurement:</strong> current and voltage monitoring were added so emitter wattage could be quantified instead of guessed.</li>
+      <li><strong>Alignment visibility:</strong> a red LED lighting mode was added so the user could see through the mask and align the wafer before engaging UV exposure.</li>
+      <li><strong>Immediate exposure shutdown:</strong> the mask toggle was designed to blackout the LCD immediately, providing a fast way to stop exposure without relying only on the UV emitter control.</li>
+      <li><strong>Resolution limitations:</strong> placing the wafer directly on the LCD made the prototype simple and usable, but introduced limitations from scattering and diffraction.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      L.A.M.P. was a rush-built research instrument, not a polished commercial device. Its purpose was to quickly turn an experimental photolithography concept into a working physical platform that could support real wafer exposure tests.
+    </p>
+
+    <p>
+      The design emphasized practical usability: manual controls for UV, mask state, and red alignment illumination; a front-panel interface for presets and monitoring; and measurement circuitry that allowed the UV emitter’s operating power to be quantified.
+    </p>
+
+    <p>
+      Future iterations could include optical projection to scale down the LCD image, improve resolution, reduce mask-to-wafer limitations, and increase patterning fidelity for more demanding photolithography work.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/lamp_01.jpg" alt="LAMP gallery image 1">
+    <img src="/images/lamp_02.jpg" alt="LAMP gallery image 2">
+    <img src="/images/lamp_03.jpg" alt="LAMP gallery image 3">
+    <img src="/images/lamp_04.jpg" alt="LAMP gallery image 4">
+    <img src="/images/lamp_05.jpg" alt="LAMP gallery image 5">
+    <img src="/images/lamp_06.jpg" alt="LAMP gallery image 6">
+    <img src="/images/lamp_07.jpg" alt="LAMP gallery image 7">
+    <img src="/images/lamp_08.jpg" alt="LAMP gallery image 8">
+    <img src="/images/lamp_09.jpg" alt="LAMP gallery image 9">
+    <img src="/images/lamp_10.jpg" alt="LAMP gallery image 10">
+    <img src="/images/lamp_11.jpg" alt="LAMP gallery image 11">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>
