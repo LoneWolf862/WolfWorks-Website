@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nixie Tube Clock | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nixie Tube Clock | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,149 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>Nixie Tube Clock</h1><p class="lead">High Voltage Display Project</p><div class="panel"><p>A high-voltage display project involving Nixie tubes, timing electronics, power conversion, and enclosure design.</p><p><strong>Status:</strong> Placeholder</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Nixie Tube Clock</h1>
+    <h3>High-Voltage Display Electronics, PCB Design, Vintage Hardware, and Embedded Systems</h3>
+
+    <p class="status-line">
+      <span class="dot"></span>
+      Shelved / PCB Design Phase — Awaiting Time and Further Development
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/nixie_splash.jpg" alt="Nixie Tube Clock">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A high-voltage Nixie tube display project designed as a configurable six-pair numeric clock, countdown timer, or general-purpose vintage display.
+    The project combines authentic Soviet Nixie tubes, custom high-voltage switching hardware, I2C GPIO expansion, embedded control, and a custom 3D-printed and wood-faced enclosure.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      The Nixie Tube Clock project came from a long-running fascination with classic Nixie tube numerical displays. I have always loved the warm vintage look of real Nixie tubes, but many modern options were either knockoffs, safer alternatives that did not capture the same feel, or finished products that were prohibitively expensive.
+    </p>
+
+    <p>
+      Rather than buying something close to what I wanted, I decided to design my own. The original idea was a countdown clock, but I wanted the display to be useful for more than one purpose. I settled on six sets of two digits, creating six two-digit display fields. For a countdown timer, this could represent seconds, minutes, hours, days, months, and years, but the same layout could also function as a clock or general numeric display.
+    </p>
+
+    <p>
+      One of the first challenges was sourcing real tubes. I wanted legitimate high-voltage Nixie tubes, not LED replacements or modern imitations. After searching online, I found a Russian supplier reselling salvaged Soviet-made tubes from an industrial plant. Knowing how fragile these tubes are, I ordered extras, which proved necessary: several arrived dead on arrival due to cracks, sealing damage, or nonfunctional internals.
+    </p>
+
+    <p>
+      The project then became a custom electronics challenge. The tubes required roughly 170–210 VDC to operate, and each display digit required individual high-voltage switching. Commercial Nixie driver ICs were long out of production and difficult to obtain, so I began designing a discrete transistor-based driver system that could be controlled from low-voltage embedded logic.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Electrical Architecture</h2>
+  <div class="panel">
+    <p>
+      Each Nixie tube has twelve leads: one common connection, ten digit elements, and a decimal point. With twelve tubes total, the display required 132 individually controlled high-voltage switching paths.
+    </p>
+
+    <p>
+      Relays were not practical for this design. They would be physically too large, slow, inefficient, and would generate unnecessary heat and mechanical wear. Instead, I researched small high-voltage transistor options and found an NPN transistor rated for approximately 300 V and 0.1 A. Since Nixie tubes operate at high voltage but relatively low current, typically around 10–20 mA, this was a suitable switching solution.
+    </p>
+
+    <p>
+      The transistor package was also small enough to make the project feasible. Using SOT-23 transistors, I could design a PCB capable of holding the large number of switching devices required for the display without making the clock enormous.
+    </p>
+
+    <p>
+      The next challenge was control I/O. A single microcontroller would not provide enough GPIO for 132 switch channels. Shift registers would have been a good solution, but I could not source the parts I wanted at the time. Instead, I found compact I2C digital GPIO expanders that provided 24 additional digital I/O pins each. By using six expanders, the system would have enough outputs to control the display with some I/O left over.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Authentic high-voltage Soviet-made Nixie tubes.</li>
+      <li>Six two-digit display groups for clock, countdown, or general numeric display use.</li>
+      <li>Designed around approximately 170–210 VDC Nixie tube operation.</li>
+      <li>Discrete high-voltage transistor switching architecture.</li>
+      <li>132 individually controlled tube element channels.</li>
+      <li>SOT-23 high-voltage transistor array design.</li>
+      <li>I2C GPIO expansion using 24-channel digital I/O expanders.</li>
+      <li>Designed around a compact Seeed Studio XIAO ESP32 microcontroller.</li>
+      <li>Native battery support planned through the XIAO ESP32 platform.</li>
+      <li>Custom 3D-printed enclosure concept.</li>
+      <li>CNC-milled Koa wood front panel planned for the finished housing.</li>
+      <li>Designed to function as a clock, countdown timer, or general numerical display.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Authentic tube sourcing:</strong> real high-voltage Nixie tubes are increasingly difficult to find, and many modern alternatives do not provide the same visual effect.</li>
+      <li><strong>Tube fragility:</strong> several salvaged tubes arrived damaged or dead due to cracks, sealing defects, or failed internals.</li>
+      <li><strong>High-voltage operation:</strong> the tubes require roughly 170–210 VDC, meaning the display electronics needed to safely handle voltages far above normal microcontroller logic levels.</li>
+      <li><strong>Driver IC scarcity:</strong> traditional Nixie driver ICs have been out of production for decades and were not practical to source for this design.</li>
+      <li><strong>Large channel count:</strong> twelve tubes with eleven controllable elements each required 132 low-voltage-controlled high-voltage switching channels.</li>
+      <li><strong>Microcontroller I/O limits:</strong> no practical compact microcontroller had enough GPIO for the full display, requiring external I/O expansion.</li>
+      <li><strong>PCB density:</strong> fitting 132 transistor channels, multiple I2C expanders, connectors, and high-voltage routing into a small desk accessory form factor required careful layout planning.</li>
+      <li><strong>Enclosure design:</strong> no off-the-shelf enclosure matched the desired Nixie display layout, so the case had to be custom designed and fabricated.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The original scope of the project was a countdown clock, but the six-pair layout made the system more flexible than a normal clock face. It could display time, countdowns, date values, counters, or other numeric data depending on firmware.
+    </p>
+
+    <p>
+      I selected the Seeed Studio XIAO ESP32 because it was compact, low power, supported I2C, had enough processing capability for a clock-style application, and included native battery support that could be useful for backup operation.
+    </p>
+
+    <p>
+      The enclosure concept combined modern fabrication and vintage aesthetics: a 3D-printed housing for the main structure with a CNC-milled Koa wood front panel. The goal was to make the finished clock feel like a small desk accessory rather than a lab prototype.
+    </p>
+
+    <p>
+      The project was in the PCB design phase when life became busy and I had to temporarily shelve it. It remains an unfinished but technically interesting high-voltage display project that I would like to return to in the future.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/nixie_01.jpg" alt="Nixie Tube Clock gallery image 1">
+    <img src="/images/nixie_02.jpg" alt="Nixie Tube Clock gallery image 2">
+    <img src="/images/nixie_03.jpg" alt="Nixie Tube Clock gallery image 3">
+    <img src="/images/nixie_04.jpg" alt="Nixie Tube Clock gallery image 4">
+    <img src="/images/nixie_05.jpg" alt="Nixie Tube Clock gallery image 5">
+    <img src="/images/nixie_06.jpg" alt="Nixie Tube Clock gallery image 6">
+    <img src="/images/nixie_07.jpg" alt="Nixie Tube Clock gallery image 7">
+    <img src="/images/nixie_08.jpg" alt="Nixie Tube Clock gallery image 8">
+    <img src="/images/nixie_09.jpg" alt="Nixie Tube Clock gallery image 9">
+    <img src="/images/nixie_10.jpg" alt="Nixie Tube Clock gallery image 10">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

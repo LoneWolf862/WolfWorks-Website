@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FPGA Tic-Tac-Toe | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPGA Tic-Tac-Toe | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,122 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>FPGA Tic-Tac-Toe</h1><p class="lead">VGA and USB Input Game</p><div class="panel"><p>An FPGA-based Tic-Tac-Toe project with VGA output and USB input integration.</p><p><strong>Status:</strong> Completed</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>FPGA Tic-Tac-Toe</h1>
+    <h3>Digital Logic Design, FPGA Development, VGA Video Generation, and USB HID Interfaces</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Functional Final Project
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/fpga_ttt_splash.jpg" alt="FPGA Tic-Tac-Toe">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A fully hardware-implemented Tic-Tac-Toe game developed on an FPGA platform using VGA video output and USB keyboard input.
+    The project combined independently developed HDL modules for video generation, keyboard interfacing, game-state management, and verification into one integrated digital system.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      FPGA Tic-Tac-Toe was developed as the final project for a digital systems and FPGA design course. Rather than selecting a minimal final project, our group wanted to build something that exercised multiple aspects of FPGA development and required meaningful subsystem integration.
+    </p>
+
+    <p>
+      The system used the FPGA's onboard VGA and USB interfaces to create a complete interactive Tic-Tac-Toe game. The game was displayed on an external monitor through a custom VGA video generator, while a USB keyboard provided player input.
+    </p>
+
+    <p>
+      Development was divided across the team. One teammate focused primarily on VGA video generation, another worked on game-state logic and simulation testbenches, and I developed the USB keyboard interface responsible for interpreting keyboard input and translating it into game commands.
+    </p>
+
+    <p>
+      Because FPGA development is fundamentally different from traditional software development, careful planning and interface standardization were critical. Each subsystem had to be designed independently while still integrating cleanly with the rest of the hardware design.
+    </p>
+
+    <p>
+      After roughly a week and a half of development, the team successfully integrated the major modules into a functional hardware-based game.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>FPGA-based hardware implementation of Tic-Tac-Toe.</li>
+      <li>Custom VGA video generation for monitor output.</li>
+      <li>USB keyboard input through the FPGA's onboard USB interface.</li>
+      <li>Numeric keypad position selection using keys 1–9.</li>
+      <li>Symbol selection controls using keyboard input.</li>
+      <li>Enter key confirmation for move placement.</li>
+      <li>Turn enforcement between players.</li>
+      <li>Hardware-implemented game-state management.</li>
+      <li>Modular HDL architecture with separately developed subsystems.</li>
+      <li>Simulation and verification through testbench development.</li>
+      <li>Collaborative integration between video, input, and game-logic modules.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Subsystem integration:</strong> independently developed HDL modules had to communicate through clean, standardized interfaces.</li>
+      <li><strong>VGA timing:</strong> the display system required correct video timing and pixel generation to render the game board and symbols on an external monitor.</li>
+      <li><strong>USB keyboard input:</strong> the input system needed to interpret keyboard data from the FPGA's onboard USB interface and convert it into usable game commands.</li>
+      <li><strong>Keyboard decoding:</strong> numeric keypad input, symbol selection, and confirmation keys had to be recognized and mapped correctly.</li>
+      <li><strong>Game-state control:</strong> the system had to track board state, enforce turn order, accept valid moves, and prevent invalid placement behavior.</li>
+      <li><strong>Testbench verification:</strong> portions of the design were tested through simulation before being integrated onto hardware.</li>
+      <li><strong>Team coordination:</strong> each module had to be developed separately while still matching the expected signals, timing, and behavior of the other modules.</li>
+      <li><strong>Integration debugging:</strong> a small logic error occasionally caused an invalid character to appear in the Tic-Tac-Toe lattice instead of an expected X or O, requiring collaborative debugging across module boundaries.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The value of this project was not simply the game itself. Tic-Tac-Toe was the visible demonstration, but the engineering challenge was building a complete digital system that connected USB keyboard input, input decoding, game-state logic, VGA video output, and hardware verification.
+    </p>
+
+    <p>
+      One of the most important lessons from this project was learning how to coordinate FPGA development across multiple contributors. Unlike many software projects, HDL modules require stricter interface definitions because hardware timing, signals, and state behavior must align correctly.
+    </p>
+
+    <p>
+      This project also provided practical experience working with external peripherals and real-world digital interfaces rather than purely simulated logic. Integrating USB input, VGA output, game-state management, and verification into a single design made the project significantly more complex than the simplicity of the game might suggest.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+
+  <div class="gallery">
+    <img src="/images/fpga_ttt_01.jpg" alt="FPGA Tic-Tac-Toe image 1">
+    <img src="/images/fpga_ttt_02.jpg" alt="FPGA Tic-Tac-Toe image 2">
+    <img src="/images/fpga_ttt_03.jpg" alt="FPGA Tic-Tac-Toe image 3">
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

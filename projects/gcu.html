@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>G.C.U | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G.C.U | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,123 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>G.C.U</h1><p class="lead">Goniometer Control Unit</p><div class="panel"><p>An ESP32-based control system for an industrial goniometer with motor control, sensors, and PC interface.</p><p><strong>Status:</strong> Active development</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>G.C.U</h1>
+    <h3>Goniometer Control Unit</h3>
+
+    <p class="status-line">
+      <span class="dot"></span>
+      Functional Prototype — Firmware incomplete at handoff
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/gcu_splash.jpg" alt="Goniometer Control Unit">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    The G.C.U. is an ESP32-based scientific instrumentation controller built to revive and operate an industrial goniometer salvaged from an old X-ray diffraction machine.
+    It recreates the required motor control, sensor reading, safety, polarizer control, and PC communication interfaces needed to make the standalone mechanism usable again.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      The Goniometer Control Unit came out of a university silicon research project. The university was disposing of an old X-ray diffraction system, and our group was able to recover the goniometer assembly. However, the goniometer had been removed from a much larger mechatronic machine and could not function by itself.
+    </p>
+
+    <p>
+      The original XRD system depended on a complex control stack, dedicated electronics, machine wiring, and advanced PC software. Once removed from that environment, the goniometer was essentially a heavy, precise mechanical assembly with no usable control interface.
+    </p>
+
+    <p>
+      After examining the unit, I identified the core controllable elements: two motorized axes, encoders, limit switches, and supporting sensor wiring. The goal became to build a standalone control interface that could recreate the necessary input/output behavior and allow the mechanism to be operated safely from a computer.
+    </p>
+
+    <p>
+      In addition to the original goniometer axes, the system was expanded to support a stepper-driven polarizer assembly. This allowed the orientation of the emitter polarizer to be adjusted under software control, giving the research setup an additional controllable experimental variable.
+    </p>
+
+    <p>
+      I designed the G.C.U. around an ESP32 microcontroller, motor drivers, a stepper motor driver, an internal power supply, a small display, USB-C serial communication, and an emergency stop. The controller was built into a dedicated enclosure and connected to the goniometer through the original dual DB-25 interface so the goniometer itself did not need to be permanently modified.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>ESP32-based motion and sensor control platform.</li>
+      <li>Designed to operate an industrial goniometer salvaged from an XRD system.</li>
+      <li>Controls two motorized goniometer axes through dedicated motor drivers.</li>
+      <li>Integrated support for a stepper-driven emitter polarizer.</li>
+      <li>Software-controlled polarizer orientation adjustment.</li>
+      <li>Reads encoder and limit switch feedback for basic position and safety awareness.</li>
+      <li>USB-C serial connection to a PC-based Python GUI.</li>
+      <li>Small onboard display for local status feedback.</li>
+      <li>Emergency stop button for immediate shutdown of motion hardware.</li>
+      <li>Dedicated enclosure containing power supply, motor drivers, controller, display, and wiring.</li>
+      <li>Dual DB-25 cable interface matching the original goniometer connections.</li>
+      <li>Preserves the physical integrity of the recovered goniometer by avoiding permanent modification.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Reverse engineering:</strong> the goniometer was recovered without the original control electronics, requiring its wiring, motors, encoders, and limit switches to be identified and mapped.</li>
+      <li><strong>Interfacing with legacy hardware:</strong> the unit connected through two DB-25 connectors, so the new control unit had to preserve and reuse those existing interfaces.</li>
+      <li><strong>Industrial motion safety:</strong> the goniometer is a heavy steel mechanism with powerful motors and gearing, so emergency stop capability was a necessary part of the design.</li>
+      <li><strong>Standalone operation:</strong> the controller had to replace functions originally handled by a much larger XRD machine and PC software environment.</li>
+      <li><strong>Sensor integration:</strong> encoders and limit switches had to be read reliably so the controller could track position after homing and prevent unsafe movement.</li>
+      <li><strong>Polarizer integration:</strong> adding a third controlled axis for emitter polarization while maintaining compatibility with the original goniometer hardware.</li>
+      <li><strong>PC control:</strong> a Python GUI was developed to send commands over USB serial and provide a more usable operator interface.</li>
+      <li><strong>Non-destructive integration:</strong> the system was intentionally designed to connect through the original goniometer connectors rather than modifying the recovered mechanism.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The G.C.U. was intended to make an otherwise useless recovered precision mechanism valuable again. Without the original XRD control system, the goniometer could not be operated, but its motors, encoders, gearing, and mechanical structure were still useful for research instrumentation.
+    </p>
+
+    <p>
+      The system was designed so the goniometer could be homed, then moved through controlled positions while reporting basic sensor and position data back to the controller. The long-term goal was to support precision wafer positioning and polarization control for silicon research work.
+    </p>
+
+    <p>
+      While the original goniometer provided the primary positioning axes, the project was expanded to include a stepper-driven polarizer assembly. This allowed the orientation of the emitter polarizer to be adjusted programmatically, providing an additional experimental variable that was not originally available through the recovered hardware alone.
+    </p>
+
+    <p>
+      I left the silicon research group before the firmware was fully completed. At handoff, the system was functional enough to move the motors, rotate the polarizer, and read basic sensor data, but not all final control features had been completed.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/gcu_splash.jpg" alt="Goniometer Control Unit">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

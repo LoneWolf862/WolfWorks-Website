@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bench Power Supply Repair Program | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bench Power Supply Repair Program | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,145 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>Bench Power Supply Repair Program</h1><p class="lead">Lab Equipment Repair</p><div class="panel"><p>Component-level repair and restoration program for aging lab bench power supplies.</p><p><strong>Status:</strong> Completed</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Bench Power Supply Repair Program</h1>
+    <h3>Lab Equipment Repair, Diagnostics, Calibration, and Asset Tracking</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Deployed Lab Maintenance Program
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/psr_splash.jpg" alt="Bench Power Supply Repair Program">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A campus lab equipment repair and tracking program created to diagnose, catalog, repair, and recalibrate aging benchtop power supplies used across electrical and computer engineering workstations.
+    The program covered 58 active lab power supplies plus 8 reserve units and became the foundation for broader lab technician work.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      This project began in the electrical and computer engineering lab workstations, where many of the benchtop power supplies were old, unstable, or drifting out of calibration. Different units presented different issues, including voltage instability, inaccurate displays, unreliable control knobs, and intermittent output behavior.
+    </p>
+
+    <p>
+      After expressing interest in repairing and maintaining the lab equipment, one of my professors enabled me to start a repair program focused on individually diagnosing and restoring these power supplies. The labs contained three primary rooms with a combined 58 power supplies, plus another 8 units held in reserve.
+    </p>
+
+    <p>
+      A previous TA had attempted to catalog and troubleshoot the supplies, but the records were based on where each unit was located rather than the identity of the individual power supply. Because the supplies were frequently moved between workstations, the existing diagnostic history could not be reliably tied to a specific unit.
+    </p>
+
+    <p>
+      I rebuilt the tracking system from scratch using each unit's serial number as its permanent identity. I printed barcode labels for the supplies and created a tracking spreadsheet that recorded serial number, current location, diagnosis, repair history, calibration notes, and operational status. This allowed the repair program to follow the actual hardware rather than the workstation it happened to occupy.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Diagnostic Process</h2>
+  <div class="panel">
+    <p>
+      The first stage of diagnosis was a full functionality evaluation of each supply. I verified that each unit could scale through its output range, establish stable voltages, operate correctly in series and parallel modes, and report output values accurately on its front display.
+    </p>
+
+    <p>
+      The evaluation revealed four common failure categories. Some units had unique one-off issues, but most failures could be traced back to front-panel potentiometer wear, internal relay problems, display calibration drift, or intermittent faults in the series/parallel mode switches.
+    </p>
+
+    <p>
+      The program was not simply a one-time repair effort. It became a structured approach to lab equipment maintenance: serialize the units, record their condition, evaluate their behavior, perform targeted repairs, recalibrate them, and document the result so future work could build on known history.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Cataloged 58 active benchtop power supplies across three labs.</li>
+      <li>Included 8 additional reserve power supplies in the repair and tracking program.</li>
+      <li>Created a barcode-based serialization and tracking system.</li>
+      <li>Rebuilt the diagnostic database around each unit's serial number instead of workstation location.</li>
+      <li>Tracked current location, diagnosis, repair history, calibration status, and operational notes.</li>
+      <li>Performed full functional evaluation of voltage output, current limiting, series mode, and parallel mode.</li>
+      <li>Checked front-panel display accuracy against actual measured output.</li>
+      <li>Replaced worn potentiometers causing irregular voltage adjustment.</li>
+      <li>Replaced worn internal relays causing voltage range transition issues.</li>
+      <li>Calibrated voltage and current display readings.</li>
+      <li>Diagnosed intermittent series/parallel mode switch faults.</li>
+      <li>Cleaned and reshaped switch contacts on a case-by-case basis for difficult intermittent failures.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Unreliable historical data:</strong> previous records tracked units by workstation location, but the supplies were frequently moved, making the original diagnostic database unusable.</li>
+      <li><strong>Asset tracking:</strong> each unit needed a permanent identity, which led to a serial-number and barcode-based tracking system.</li>
+      <li><strong>Potentiometer wear:</strong> aging front-panel controls caused irregular and imprecise voltage scaling during adjustment.</li>
+      <li><strong>Relay transition faults:</strong> several units had large voltage jumps or inaccessible ranges around internal relay transition points near approximately 8 V and 16 V.</li>
+      <li><strong>Calibration drift:</strong> front-panel voltage and current displays had drifted away from the actual output values and required individual tuning.</li>
+      <li><strong>Intermittent mechanical faults:</strong> some units developed a random left-channel voltage drop that could be triggered or resolved by physical vibration.</li>
+      <li><strong>Complex mode switches:</strong> the series/parallel mode switches were mechanically complex 12-pin, 4-contact shift switches that required disassembly, cleaning, and contact reshaping when faulty.</li>
+      <li><strong>Repair triage:</strong> common repairs such as potentiometer replacement, relay replacement, and calibration could be done broadly, while time-intensive switch repair had to be performed only on units showing that specific fault.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      One of the more difficult issues involved a left-channel voltage that would slowly drop at random and then recover after the power supply was power-cycled. The fault was difficult to isolate until I discovered it could be intentionally triggered or cleared with light mechanical impact.
+    </p>
+
+    <p>
+      That observation pointed toward a mechanical problem rather than a purely electrical one. After further testing, I traced the issue to the series/parallel pushbutton switch assembly. Wiggling the left series switch could cause or resolve the fault. Disassembling the switch revealed dirty or deformed internal contacts, which could be cleaned and reshaped to restore proper operation.
+    </p>
+
+    <p>
+      Although this repair was effective, it was also time-intensive, so it was performed only when a unit showed that specific failure mode. More common repairs, including potentiometer replacement, relay replacement, and display calibration, were applied broadly across the fleet as needed.
+    </p>
+
+    <p>
+      This program directly led into my broader work as a lab technician maintaining, diagnosing, and repairing other laboratory equipment, including function generators and oscilloscopes. The original power supplies have since been replaced with newer units and now sit in storage as spares, but the repair program served as a practical foundation for ongoing lab equipment maintenance.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/psr_01.jpg" alt="Bench Power Supply Repair Program gallery image 1">
+    <img src="/images/psr_02.jpg" alt="Bench Power Supply Repair Program gallery image 2">
+    <img src="/images/psr_03.jpg" alt="Bench Power Supply Repair Program gallery image 3">
+    <img src="/images/psr_04.jpg" alt="Bench Power Supply Repair Program gallery image 4">
+    <img src="/images/psr_05.jpg" alt="Bench Power Supply Repair Program gallery image 5">
+    <img src="/images/psr_06.jpg" alt="Bench Power Supply Repair Program gallery image 6">
+    <img src="/images/psr_07.jpg" alt="Bench Power Supply Repair Program gallery image 7">
+    <img src="/images/psr_08.jpg" alt="Bench Power Supply Repair Program gallery image 8">
+    <img src="/images/psr_09.jpg" alt="Bench Power Supply Repair Program gallery image 9">
+    <img src="/images/psr_10.jpg" alt="Bench Power Supply Repair Program gallery image 10">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>
