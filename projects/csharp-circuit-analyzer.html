@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>C# Circuit Analyzer | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C# Circuit Analyzer | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,111 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>C# Circuit Analyzer</h1><p class="lead">Circuit Analysis Software</p><div class="panel"><p>Object-oriented circuit analyzer using net-based modeling, series/parallel reduction, and basic DC analysis.</p><p><strong>Status:</strong> Completed</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>C# Circuit Analyzer</h1>
+    <h3>Object-Oriented Programming, Circuit Modeling, and Console-Based Simulation</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Functional Coursework Project
+    </p>
+
+    <div class="btn-row">
+      <a class="btn secondary" href="https://github.com/LoneWolf862/CircuitAnalyser" target="_blank">
+        View GitHub Repository
+      </a>
+    </div>
+  </div>
+
+  <img class="project-splash" src="/images/canalyser_splash.png" alt="C# Circuit Analyzer">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A console-based circuit simulator written in C# that allows users to construct circuits using named electrical nets, reduce simple equivalent component values, and analyze basic resistive loops.
+    The project was originally created as a C# final project, but expanded beyond the basic class scope as a personal challenge.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      The C# Circuit Analyzer was built around the idea of representing circuits through named nets instead of fixed visual layouts. Each component is defined by its value and the two nets it connects between, allowing the program to model different circuit topologies in a structured way.
+    </p>
+
+    <p>
+      The project supports voltage sources, resistors, capacitors, and inductors. It can identify and reduce simple series and parallel relationships, then perform basic analysis on valid simple resistive loops.
+    </p>
+
+    <p>
+      This project was also an exercise in object-oriented design. Components share a common base class, while individual component types implement their own behavior for series and parallel combination. This allowed the same reduction logic to operate across different electrical component types while still respecting their unique equations.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Console-based C# circuit builder and analyzer.</li>
+      <li>Net-based circuit construction using named nodes.</li>
+      <li>Supports DC voltage sources, resistors, capacitors, and inductors.</li>
+      <li>Series and parallel equivalent value reduction.</li>
+      <li>Basic simple-loop resistive analysis using Ohm’s Law.</li>
+      <li>Object-oriented component model using abstraction, encapsulation, inheritance, and polymorphism.</li>
+      <li>Graceful error handling for unsupported or invalid circuit configurations.</li>
+      <li>Menu-driven console interface for adding components, viewing circuits, reducing values, and analyzing loops.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Net-based modeling:</strong> representing circuit connectivity through named nets rather than hardcoded layouts or fixed component positions.</li>
+      <li><strong>Equivalent reduction:</strong> detecting simple series and parallel relationships across different component types.</li>
+      <li><strong>Component-specific behavior:</strong> implementing different combination rules for resistors, capacitors, and inductors.</li>
+      <li><strong>Analysis limits:</strong> intentionally restricting full circuit analysis to simple valid resistive loops to keep the project manageable.</li>
+      <li><strong>Error handling:</strong> preventing unsupported topologies from crashing the program and instead returning useful diagnostic messages.</li>
+      <li><strong>OOP structure:</strong> using inheritance and polymorphism so each component type could respond correctly to shared method calls.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The project intentionally avoided full SPICE-like circuit solving. It does not perform AC analysis, transient analysis, full Kirchhoff solving, or matrix-based branch analysis. The goal was to build a clean, understandable, extensible foundation rather than a full professional simulator.
+    </p>
+
+    <p>
+      The most interesting part of the project was the net-based structure. By treating wires as named connection points, the program could support flexible user-defined circuits without requiring a graphical interface.
+    </p>
+
+    <p>
+      Future improvements could include saving and loading circuits, graph-based traversal, branch solving, a GUI interface, AC analysis, and time-domain simulation.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

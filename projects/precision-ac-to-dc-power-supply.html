@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Precision AC to DC Power Supply | WolfWorks</title><link rel="stylesheet" href="/css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precision AC to DC Power Supply | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="nav">
@@ -16,4 +19,112 @@
     <a href="/contact.html">Contact</a>
   </div>
 </nav>
-<main><section class="section" style="border-top:0; padding-top:0;"><div class="eyebrow">Project</div><h1>Precision AC to DC Power Supply</h1><p class="lead">Power Electronics Project</p><div class="panel"><p>A precision AC-to-DC power supply project focused on conversion, regulation, and measurement.</p><p><strong>Status:</strong> Placeholder</p><h2>Overview</h2><p>Placeholder project page. This section will later include project goals, system architecture, design challenges, photos, diagrams, build notes, and final results.</p><h2>Planned Documentation</h2><ul><li>Problem statement</li><li>System requirements</li><li>Hardware design</li><li>Firmware/software design</li><li>Testing and lessons learned</li></ul></div></section></main><footer class="footer">WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.</footer></body></html>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Precision AC to DC Power Supply</h1>
+    <h3>Analog Electronics, Voltage Regulation, Current Limiting, and PCB Design</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Functional Coursework Project
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/psu_splash.jpg" alt="Precision AC to DC Power Supply">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A regulated AC/DC input power supply designed to produce a stable 7 V DC output with current limiting around 150 mA.
+    The project began as a class final, but was refined beyond the base requirements through component selection, tuning, testing, and PCB cleanup.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      This project was originally assigned as an AC to DC power supply final. Rather than only meeting the minimum requirements, I wanted to see how closely I could target a precise output voltage by carefully selecting components, validating values, and keeping the PCB implementation clean.
+    </p>
+
+    <p>
+      The design accepts either AC or DC input in the 13–30 V range and regulates it to approximately 7 V DC. The circuit includes rectification, filtering, a voltage reference, op-amp regulation, MOSFET output control, LED indication, and current limiting.
+    </p>
+
+    <p>
+      After the class report was completed, I continued refining and tuning the circuit. By replacing and selecting components more carefully, I was able to get the realized output voltage very close to the calculated target.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Accepts AC or DC input from approximately 13–30 V.</li>
+      <li>Regulated 7 V DC output target.</li>
+      <li>Current limit near 150 mA for overload protection.</li>
+      <li>Input rectification and filtering stage.</li>
+      <li>LM385 2.5 V voltage reference.</li>
+      <li>Op-amp controlled MOSFET output regulation.</li>
+      <li>BJT-assisted current limiting feedback.</li>
+      <li>Red LED power/operational indicator.</li>
+      <li>Measured output remained around 7.1 V through most of the intended load range.</li>
+      <li>Measured current limit of approximately 152 mA.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Precision targeting:</strong> selecting and tuning components to bring the real output voltage close to the calculated design value.</li>
+      <li><strong>Regulation stability:</strong> maintaining output voltage as load current increased toward the current limit.</li>
+      <li><strong>Current limiting:</strong> using the voltage drop across a sense resistor to trigger current limiting through the BJT/MOSFET control path.</li>
+      <li><strong>Ripple control:</strong> filtering rectified input and reducing output ripple under load.</li>
+      <li><strong>Analog feedback behavior:</strong> understanding how the op-amp, MOSFET, and BJT interacted to regulate voltage and limit current.</li>
+      <li><strong>PCB implementation:</strong> keeping the board clean and practical so the physical build matched the intended circuit behavior.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The measured current limit was approximately 152 mA, which was very close to the intended 150 mA limit. The circuit maintained about 7.1 V under normal load conditions before entering current limit behavior.
+    </p>
+
+    <p>
+      The project was a useful exercise in moving from simulation and calculation into physical circuit performance. Small component tolerances, real op-amp behavior, reference stability, and layout quality all affected the final result.
+    </p>
+
+    <p>
+      This was one of the projects that helped deepen my understanding of analog regulation, current limiting, feedback control, and the difference between a schematic that works in theory and a circuit that behaves well on a bench.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/psu_01.jpg" alt="Precision AC to DC Power Supply image 1">
+    <img src="/images/psu_02.jpg" alt="Precision AC to DC Power Supply image 2">
+    <img src="/images/psu_03.jpg" alt="Precision AC to DC Power Supply image 3">
+    <img src="/images/psu_04.jpg" alt="Precision AC to DC Power Supply image 4">
+    <img src="/images/psu_05.jpg" alt="Precision AC to DC Power Supply image 5">
+    <img src="/images/psu_06.jpg" alt="Precision AC to DC Power Supply image 6">  
+</div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>

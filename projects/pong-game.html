@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pong Game | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+
+    <h1>Pong Game</h1>
+    <h3>Embedded Systems, Real-Time Programming, Graphics, and Autonomous Control</h3>
+
+    <p class="status-line">
+      <span class="dot blue"></span>
+      Completed / Functional Coursework Project
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/pong_splash.jpg" alt="Embedded Pong Game">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+
+  <p class="lead">
+    A Pong game written in C for the MSP432 LaunchPad featuring both player-controlled
+    and autonomous gameplay modes. The project included custom display control,
+    collision detection, real-time game logic, and an AI opponent capable of
+    predicting ball trajectories and automatically positioning its paddle.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+
+  <div class="panel">
+    <p>
+      The Pong Game project was one of my earliest introductions to applied embedded
+      programming in C. Developed on the MSP432 LaunchPad platform, the project
+      combined graphics generation, real-time game logic, input handling, and
+      autonomous control into a complete embedded application.
+    </p>
+
+    <p>
+      The system was built around a small pixel-based graphical display connected
+      to the MSP432. Rather than relying on a prebuilt graphics engine, we had
+      to directly interface with the display hardware and implement the software
+      necessary to draw game objects and update the screen in real time.
+    </p>
+
+    <p>
+      The game supported two operating modes. The first was a traditional
+      player-controlled Pong implementation where users could move the paddles
+      and play the game normally. The second was an autonomous mode where the
+      software calculated the future trajectory of the ball and automatically
+      moved the paddles into position to intercept it.
+    </p>
+
+    <p>
+      To make gameplay more interesting, I added a feature that increased the
+      ball's speed after every successful hit. This gradually increased the
+      difficulty of the game and eventually pushed the limits of the display
+      hardware. In autonomous mode, the game could become so fast that the
+      display would visibly struggle to keep up, occasionally appearing to
+      black out as update rates exceeded what the display could comfortably
+      refresh.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+
+  <div class="panel">
+    <ul>
+      <li>MSP432 LaunchPad implementation.</li>
+      <li>Written entirely in C.</li>
+      <li>Pixel-based graphical display.</li>
+      <li>Custom display control software.</li>
+      <li>Real-time game loop.</li>
+      <li>Player-controlled gameplay mode.</li>
+      <li>Autonomous gameplay mode.</li>
+      <li>Ball and paddle collision detection.</li>
+      <li>Dynamic speed scaling.</li>
+      <li>Automatic trajectory prediction.</li>
+      <li>Autonomous paddle positioning.</li>
+      <li>Embedded user input handling.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+
+  <div class="panel">
+    <ul>
+      <li><strong>Embedded graphics:</strong> interfacing directly with a small pixel display and creating software capable of drawing and updating game elements.</li>
+
+      <li><strong>Real-time programming:</strong> maintaining a responsive game loop while updating graphics and handling user input.</li>
+
+      <li><strong>Collision detection:</strong> accurately determining ball impacts against moving paddles and screen boundaries.</li>
+
+      <li><strong>Trajectory prediction:</strong> calculating future ball movement so autonomous paddles could react appropriately.</li>
+
+      <li><strong>Performance limits:</strong> managing increasing game speeds while remaining within the refresh capabilities of the display hardware.</li>
+
+      <li><strong>System integration:</strong> combining graphics, timing, input handling, game-state management, and AI behavior into a single embedded application.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+
+  <div class="panel">
+    <p>
+      While Pong itself is a simple game, the project represented one of my first
+      opportunities to build a complete embedded application rather than isolated
+      exercises or demonstrations. It required combining multiple concepts into a
+      cohesive system that users could directly interact with.
+    </p>
+
+    <p>
+      The autonomous mode became one of the most entertaining aspects of the
+      project. Because the ball accelerated after every successful hit, the AI
+      players could eventually keep the ball in play indefinitely. As the speed
+      continued increasing, the display would become the limiting factor rather
+      than the game logic itself.
+    </p>
+
+    <p>
+      Looking back, this project provided early experience with embedded graphics,
+      state machines, timing, software architecture, and hardware interfacing—
+      concepts that would later appear repeatedly in larger and more advanced
+      embedded systems projects.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+
+  <div class="gallery">
+    <img src="/images/pong_01.jpg" alt="Pong Game image 1">
+    <img src="/images/pong_02.jpg" alt="Pong Game image 2">
+    <img src="/images/pong_03.jpg" alt="Pong Game image 3">
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+
+</body>
+</html>

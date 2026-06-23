@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xbox Macro Controller | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Xbox Macro Controller</h1>
+    <h3>Controller Modification, Embedded Prototyping, Signal Injection, and Human Interface Hardware</h3>
+
+    <p class="status-line">
+      <span class="dot"></span>
+      Prototype / Future Revision Planned
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/xboxmacro_splash.jpg" alt="Xbox Macro Controller">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    A modified Xbox controller prototype capable of running timed input macros by electrically simulating button presses, joystick movement, and trigger positions through an external microcontroller.
+    The project began as an Arduino Uno proof-of-concept and is planned to evolve into a compact ESP32-based internal controller modification.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      This project began from a simple frustration: on PC, automating repeated or precisely timed game inputs is relatively straightforward, but on Xbox it is much more difficult. After thinking about the problem, I realized that an Xbox controller is ultimately just another embedded system reading buttons, potentiometers, and input signals.
+    </p>
+
+    <p>
+      I bought a low-cost Xbox controller and began prototyping with an Arduino Uno. The goal was to electrically simulate physical controller inputs so that the controller would still appear completely normal to the Xbox, while an external microcontroller could trigger specific input patterns with precise timing.
+    </p>
+
+    <p>
+      The first stage involved exposing traces inside the controller and soldering leads to the button input points. Most digital buttons could be simulated by pulling the appropriate signal to ground on command, then returning the microcontroller pin to a high-impedance state so the controller behaved normally when the macro system was inactive.
+    </p>
+
+    <p>
+      The analog controls required more investigation. The joysticks were potentiometer-based, so basic directional input could be simulated by pulling one side of the joystick signal toward ground. The triggers were more complicated because they expected specific analog voltages for specific trigger positions. To solve this, I measured trigger voltages during normal controller operation and created voltage-divider networks that could be switched by digital outputs.
+    </p>
+
+    <p>
+      The proof-of-concept successfully allowed the controller to run simple hard-coded macro sequences from the Arduino. The long-term goal is to move the design from a bench prototype into a fully enclosed controller modification using a compact 3.3 V microcontroller and DAC-based analog signal generation.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Modified Xbox controller used as the target hardware platform.</li>
+      <li>Arduino Uno prototype used for initial macro control testing.</li>
+      <li>Digital button simulation by pulling controller input signals to ground.</li>
+      <li>High-impedance idle behavior to avoid interfering with normal controller use.</li>
+      <li>Voltage-divider level shifting between 5 V Arduino logic and 3.3 V controller logic.</li>
+      <li>Joystick direction simulation through potentiometer signal manipulation.</li>
+      <li>Trigger position simulation using measured voltage levels and switched voltage dividers.</li>
+      <li>Hard-coded timed macro sequences.</li>
+      <li>Future plan for compact Seeed Studio XIAO ESP32 integration.</li>
+      <li>Future DAC-based analog output for cleaner joystick and trigger control.</li>
+      <li>Designed goal of preserving normal controller usability when macros are inactive.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Logic-level mismatch:</strong> the Arduino Uno used 5 V logic while the Xbox controller operated at 3.3 V, requiring quick level shifting with voltage dividers.</li>
+      <li><strong>Controller trace access:</strong> the controller PCB required soldering to small exposed traces and input points without damaging normal controller operation.</li>
+      <li><strong>Non-invasive behavior:</strong> macro outputs had to leave the controller unaffected when inactive, which required using high-impedance behavior instead of permanently driving every line.</li>
+      <li><strong>Analog joystick simulation:</strong> joystick inputs were potentiometer-based and required signal manipulation rather than simple digital button logic.</li>
+      <li><strong>Trigger voltage mapping:</strong> trigger inputs expected specific analog voltage values, so their behavior had to be measured and recreated with switched voltage divider outputs.</li>
+      <li><strong>Timing precision:</strong> the macro system needed to generate repeatable button timings more precisely than a human operator could perform manually.</li>
+      <li><strong>Future packaging:</strong> the final design needs to fit inside the controller enclosure without compromising normal use, comfort, or reliability.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      The project is currently a functional prototype rather than a polished finished device. The Arduino-based version proved that the concept works, but the controller still needs to be redesigned around smaller hardware before it can be enclosed cleanly.
+    </p>
+
+    <p>
+      A future version would likely use a Seeed Studio XIAO ESP32 because it is compact, natively uses 3.3 V logic, and has enough capability for simple timed macro control. Adding a small DAC would allow precise analog voltage output for joystick and trigger manipulation rather than relying on fixed switched dividers.
+    </p>
+
+    <p>
+      The end goal is a fully enclosed Xbox controller that can run macros cleanly and efficiently without compromising normal controller functionality and without requiring technical knowledge from the user.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/xboxmacro_01.jpg" alt="Xbox Macro Controller gallery image 1">
+    <img src="/images/xboxmacro_02.jpg" alt="Xbox Macro Controller gallery image 2">
+    <img src="/images/xboxmacro_03.jpg" alt="Xbox Macro Controller gallery image 3">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>
