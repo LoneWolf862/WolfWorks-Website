@@ -317,6 +317,15 @@ a.card:hover {
   background: var(--green);
 }
 
+.project-date {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+  margin-left: 18px;   /* aligns with the text after the orange dot */
+  line-height: 1.2;
+}
+
 /* About page */
 
 .about-layout {
@@ -416,6 +425,25 @@ a.card:hover {
   box-shadow: none;
   padding: 0;
 }
+
+
+@media (max-width: 700px) {
+  .skills-header {
+    display: block;
+  }
+
+  .skills-header .lead {
+    margin-bottom: 18px;
+  }
+
+  .skills-header .wolf-cutout {
+    display: block;
+    width: 60%;
+    max-width: 360px;
+    margin: 0 auto 24px auto;
+  }
+}
+
 
 .wolftron-image {
   margin-top: 50px;

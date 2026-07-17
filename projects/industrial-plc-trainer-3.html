@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Industrial PLC Trainer 3.0 | WolfWorks</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html">Wolf<span>Works</span></a>
+    <a href="/index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/about.html#skills">Skills Matrix</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/shop.html">The Lab</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="project-hero">
+  <div>
+    <div class="eyebrow">Project</div>
+    <h1>Industrial PLC Trainer 3.0</h1>
+    <h3>Industrial Automation, PLC Systems, Electrical Design, and Educational Infrastructure</h3>
+
+    <p class="status-line">
+      <span class="dot"></span>
+      Active Development / Department Deployment
+    </p>
+  </div>
+
+  <img class="project-splash" src="/images/plctrainer_splash.jpg" alt="Industrial PLC Trainer 3.0">
+</section>
+
+<section class="section">
+  <h2>Short Description</h2>
+  <p class="lead">
+    Industrial PLC Trainer 3.0 is a complete redesign of BYU–Idaho ECEN’s Allen-Bradley PLC instructional trainer cabinets.
+    The project replaces a legacy custom PCB and unsafe wiring architecture with a modern DIN-rail-based industrial control platform designed for safety, maintainability, documentation, and student learning.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Project Overview</h2>
+  <div class="panel">
+    <p>
+      Industrial PLC Trainer 3.0 was developed for the BYU–Idaho Electrical and Computer Engineering Department as the third major revision of the department’s PLC instructional hardware.
+      The trainers are used to teach students how to wire, configure, and program Allen-Bradley PLC systems for industrial automation.
+    </p>
+
+    <p>
+      The department already had five trainer cabinets and needed five additional units. The existing units used switches and lights as 24 VDC digital inputs and outputs for Allen-Bradley PLC modules, but much of the internal routing was handled by a homemade custom PCB.
+    </p>
+
+    <p>
+      Although the original PCB worked, it introduced several serious issues. It was confusing to trace, not properly rated for the voltage and current it could carry, unfused, mixed with old legacy circuitry from previous revisions, and exposed users to potential mains voltage hazards.
+    </p>
+
+    <p>
+      My supervisor originally wanted me to recreate the existing PCB because it had worked in the past. After reverse engineering the system, I concluded that recreating it would also preserve many of its safety, maintenance, and educational weaknesses.
+    </p>
+
+    <p>
+      I proposed replacing the PCB backplane with a modern DIN-rail terminal block architecture. This approach is safer, easier to maintain, easier to troubleshoot, and much more representative of the industrial control systems students will encounter professionally.
+    </p>
+
+    <p>
+      To demonstrate the idea, I built a functional DIN-rail prototype. Once my supervisor saw the prototype, he agreed that the new architecture was a better solution, and the project moved forward as the new PLC Trainer 3.0 design.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Features</h2>
+  <div class="panel">
+    <ul>
+      <li>Allen-Bradley CompactLogix PLC instructional platform.</li>
+      <li>Designed for 24 VDC digital input and output training.</li>
+      <li>Modern DIN-rail terminal block architecture.</li>
+      <li>Industrial relay and terminal block layout.</li>
+      <li>Fused and protected circuit paths.</li>
+      <li>Color-coded 18 AWG AWM wiring standard.</li>
+      <li>Heat-shrink wire labels matching the wiring diagram.</li>
+      <li>Cleaner wire routing and easier troubleshooting.</li>
+      <li>Designed to replace undocumented legacy PCB wiring.</li>
+      <li>Improved electrical safety by reducing mains exposure risk.</li>
+      <li>Professional wiring diagram and design documentation.</li>
+      <li>Designed for ten total standardized trainer cabinets.</li>
+      <li>Built to support student learning, instructor use, and long-term department maintenance.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Wiring Standard</h2>
+  <div class="panel">
+    <p>
+      One major improvement in PLC Trainer 3.0 is the new wiring standard. The existing trainer cabinets contained wiring that was difficult and sometimes unsafe to work with. Some wiring was done entirely in white THHN with no labels, making tracing extremely difficult. Other sections used 22 AWG solid-core wire for digital power paths, even though those circuits could potentially carry significantly more current than the wire was appropriate for.
+    </p>
+
+    <p>
+      To improve safety, maintainability, and instructional clarity, I standardized the new trainer wiring around 18 AWG AWM wire with consistent color coding and heat-shrink labels.
+    </p>
+
+    <ul>
+      <li><strong>Black:</strong> AC line.</li>
+      <li><strong>White:</strong> AC neutral.</li>
+      <li><strong>Green:</strong> Earth ground.</li>
+      <li><strong>Red:</strong> 24 VDC.</li>
+      <li><strong>Gray:</strong> DC ground/common.</li>
+      <li><strong>Purple:</strong> Relay control.</li>
+      <li><strong>Blue:</strong> Digital I/O.</li>
+      <li><strong>Yellow:</strong> Analog I/O.</li>
+    </ul>
+
+    <p>
+      Each wire is labeled to match the wiring diagram, allowing students, instructors, and future technicians to trace logic through the cabinet without needing to reverse engineer the trainer again.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>The Story of the Redesign</h2>
+  <div class="panel">
+    <h3>Understanding the Existing System</h3>
+    <p>
+      The original trainer boxes had already gone through multiple revisions. Over time, legacy systems remained integrated into the cabinet even when they were no longer necessary. This created extra complexity, additional failure points, and confusing wiring paths.
+    </p>
+
+    <p>
+      Because there was little to no documentation, understanding the existing system required physically tracing wires, inspecting the PCB, identifying old circuitry, and determining which parts of the design were still relevant.
+    </p>
+
+    <h3>Choosing Not to Recreate the PCB</h3>
+    <p>
+      The simplest path would have been to recreate the PCB and build five more units exactly like the existing ones. However, that would have preserved the same weaknesses: poor serviceability, poor documentation, unsafe exposure risks, limited fusing, and a design students would not commonly encounter in industry.
+    </p>
+
+    <p>
+      Instead, I argued for a DIN-rail terminal block system. This would make the trainer easier to wire, easier to inspect, easier to repair, and more valuable as an educational tool.
+    </p>
+
+    <h3>Building the Prototype</h3>
+    <p>
+      To prove the concept, I built a functional prototype using DIN-rail terminal blocks, relays, fusing, and organized wiring. The prototype demonstrated that the trainer could be made cleaner, safer, easier to maintain, and more representative of real industrial control panels.
+    </p>
+
+    <p>
+      After reviewing the prototype, my supervisor approved the new architecture, and the project moved from concept into deployment.
+    </p>
+
+    <h3>Documentation</h3>
+    <p>
+      A major goal of PLC Trainer 3.0 is to avoid the documentation problems of previous revisions. The new design includes formal wiring diagrams, wire labels, component documentation, design notes, and usage documentation.
+    </p>
+
+    <p>
+      The intent is that future students, instructors, and technicians should be able to understand and maintain the system from documentation instead of needing to rediscover the design by tracing wires manually.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Technical Challenges</h2>
+  <div class="panel">
+    <ul>
+      <li><strong>Reverse engineering:</strong> understanding undocumented legacy trainer cabinets and identifying which wiring and circuits were still necessary.</li>
+      <li><strong>Safety redesign:</strong> reducing exposed mains-voltage hazards and adding a safer internal architecture.</li>
+      <li><strong>Architecture change:</strong> replacing a custom PCB backplane with a DIN-rail terminal block system.</li>
+      <li><strong>Stakeholder approval:</strong> convincing the department to move away from an existing design by building and demonstrating a working prototype.</li>
+      <li><strong>Wire standardization:</strong> replacing inconsistent unlabeled wiring with color-coded, labeled 18 AWG AWM conductors.</li>
+      <li><strong>Educational value:</strong> designing the trainer so students see wiring practices and components similar to real industrial control systems.</li>
+      <li><strong>Documentation:</strong> creating professional diagrams and records where previous revisions had little or no usable documentation.</li>
+      <li><strong>Maintainability:</strong> designing the system so future repairs can be made through terminal blocks, relays, labels, and documentation rather than PCB reverse engineering.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Educational Impact</h2>
+  <div class="panel">
+    <p>
+      PLC Trainer 3.0 is not only a hardware repair or rebuild. It improves the instructional value of the department’s PLC lab by exposing students to the same kinds of terminal blocks, relays, fusing, wire labels, color codes, and documentation practices they are likely to encounter in industry.
+    </p>
+
+    <p>
+      The redesign makes the trainers more useful as teaching tools because students can follow the wiring, understand the control logic, and see how industrial panels are organized rather than interacting with a hidden custom PCB that does not reflect common field practice.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Miscellaneous Notes</h2>
+  <div class="panel">
+    <p>
+      Parts have been acquired and existing units are being rebuilt around the new DIN-rail architecture. Additional components are being procured to build the next five units, bringing the department toward ten standardized PLC trainers.
+    </p>
+
+    <p>
+      This project reflects a practical engineering principle: the system that works is not always the system worth copying. Sometimes the correct solution is to stop preserving an old design and replace it with something safer, clearer, and easier to maintain.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="/images/plctrainer_splash.jpg" alt="Industrial PLC Trainer 3.0">
+    <img src="/images/plctrainer_01.jpg" alt="PLC Trainer 3.0 DIN rail prototype">
+    <img src="/images/plctrainer_02.jpg" alt="PLC Trainer 3.0 wiring diagram">
+    <img src="/images/plctrainer_03.jpg" alt="Allen-Bradley CompactLogix controller">
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  WolfWorks.tech • Embedded systems, automation, firmware, and hardware projects.
+</footer>
+</body>
+</html>
